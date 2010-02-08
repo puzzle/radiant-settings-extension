@@ -1,4 +1,4 @@
-module SettingsTags
+module ConfigTags
   include Radiant::Taggable
 
   class TagError < StandardError; end

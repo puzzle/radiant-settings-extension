@@ -1,13 +1,11 @@
-class AddDescriptionToConfig < ActiveRecord::Migration
+class CreateConfigs < ActiveRecord::Migration
   
   class Config < ActiveRecord::Base; end
   
   def self.up
     add_column :config, :description, :text
     
-    puts "-- Adding description for base radiant settings"
-    
-    
+    Config.create!(:key => 'roles.settings', :value => 'admin')
     Config.find(:all).each do |c|
       description = case c.key
         when 'admin.title'
@@ -40,6 +38,10 @@ Sets the text filter a new page has by default.  Valid options, in a vanilla Rad
 * Markdown
 * SmartyPants
 * Textile
+DESC
+      when 'roles.settings'
+          <<-DESC
+List of user roles that may see the settings tabs.                
 DESC
       end
       
