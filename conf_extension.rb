@@ -31,8 +31,8 @@ class ConfExtension < Radiant::Extension
     end
     
     Page.class_eval do
-      include SettingsTags
-    do
+      include ConfigTags
+    end
     
     Radiant::AdminUI.class_eval do
       attr_accessor :settings
@@ -41,7 +41,6 @@ class ConfExtension < Radiant::Extension
   end
   
   def deactivate
-    admin.tabs.remove "Settings"
   end
   
   def load_default_settings_regions
