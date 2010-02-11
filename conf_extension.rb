@@ -27,7 +27,7 @@ class ConfExtension < Radiant::Extension
     end
     
     tab :Settings do
-      add_item :Config, "/admin/config", :after => :Users
+      add_item :Config, "/admin/configs", :after => :Users
     end
     
     Page.class_eval do
