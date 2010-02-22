@@ -1,29 +1,28 @@
 #config_table
-  :padding-bottom 18px
+  :padding
+    :bottom       18px
 
-table#config_index
-  :background #fff
-  :color  #121212
+  #config_index
+    :background   #fff
+    :color        #121212
+
+    .key
+      :width      25%
 
   span.label
-    color: #666
-    font-size: 1.2em
+    :color        #666
+    :font
+      :size       1.2em
 
-  div.nest-padding
-    width: 35px
-    height: 10px
-    float: left
+  .nest-padding
+    :width        35px
+    :height       10px
+    :float        left
 
-  tr.spacer
+  .spacer
+    :height       3px
+  
     td
-      background: #EAEAEA
-      height: 3px
-      padding: 0
-p.new
-  a
-    color: #000
-    border: 1px solid #ddf
-    padding: 6px
-    text-decoration: none
-    &:hover
-      background: #efefff
+      :background #EAEAEA
+      :height     3px
+      :padding    0
