@@ -56,6 +56,7 @@ namespace :db do
     passwords.each do |id, password, salt|
       User.update_all({:password => password, :salt => salt}, ['id = ?', id])
     end
+    
 
     # Now load the created users into the hash and load the rest of the data
     data['records'].each do |klass, records|
@@ -65,6 +66,9 @@ namespace :db do
         end
         if attributes.has_key? 'updated_by'
           attributes['updated_by'] = User.find(attributes['updated_by']) rescue nil
+        end
+        if attributes.has_key? 'clear_password'
+          #attributes['password'] = attributes['password_confirmation'] = attributes['clear_password']
         end
       end
     end

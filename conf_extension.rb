@@ -26,22 +26,16 @@ class ConfExtension < Radiant::Extension
       end
     end
     
-    tab :Settings do
-      add_item :Config, "/admin/config", :after => :Users
+    tab 'Settings' do
+      add_item 'Config', '/admin/configs', :after => 'Users'
     end
     
-    Page.class_eval do
-      include SettingsTags
-    do
+    Page.class_eval { include ConfigTags }
     
     Radiant::AdminUI.class_eval do
       attr_accessor :settings
     end
     admin.settings = load_default_settings_regions
-  end
-  
-  def deactivate
-    admin.tabs.remove "Settings"
   end
   
   def load_default_settings_regions
