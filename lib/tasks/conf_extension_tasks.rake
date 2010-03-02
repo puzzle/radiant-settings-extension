@@ -6,17 +6,17 @@ namespace :radiant do
       task :migrate => :environment do
         require 'radiant/extension_migrator'
         if ENV["VERSION"]
-          ConfigsExtension.migrator.migrate(ENV["VERSION"].to_i)
+          ConfExtension.migrator.migrate(ENV["VERSION"].to_i)
         else
-          ConfigsExtension.migrator.migrate
+          ConfExtension.migrator.migrate
         end
       end
       
       desc "Copies public assets of the Conf to the instance public/ directory."
       task :update => :environment do
         is_svn_or_dir = proc {|path| path =~ /\.svn/ || File.directory?(path) }
-        Dir[ConfigsExtension.root + "/public/**/*"].reject(&is_svn_or_dir).each do |file|
-          path = file.sub(ConfigsExtension.root, '')
+        Dir[ConfExtension.root + "/public/**/*"].reject(&is_svn_or_dir).each do |file|
+          path = file.sub(ConfExtension.root, '')
           directory = File.dirname(path)
           puts "Copying #{path}..."
           mkdir_p RAILS_ROOT + directory

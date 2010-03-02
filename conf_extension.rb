@@ -31,10 +31,8 @@ class ConfExtension < Radiant::Extension
     end
     
     Page.class_eval { include ConfigTags }
+    Radiant::AdminUI.class_eval { attr_accessor :settings }
     
-    Radiant::AdminUI.class_eval do
-      attr_accessor :settings
-    end
     admin.settings = load_default_settings_regions
   end
   
