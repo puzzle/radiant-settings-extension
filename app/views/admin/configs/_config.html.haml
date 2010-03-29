@@ -4,7 +4,7 @@
       .nest-padding
     
     - if conf
-      %span.title= link_to "#{image_tag('admin/config.png', :size => '16x16')} #{key.humanize}", edit_admin_config_path(conf), :title => key
+      %span.title= link_to "#{image_tag('admin/extensions/settings/setting.png', :size => '16x16')} #{key.humanize}", edit_admin_config_path(conf), :title => key
     
     - else
       %span.title.label= key.humanize
