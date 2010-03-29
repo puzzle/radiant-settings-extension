@@ -1,14 +1,14 @@
 # Uncomment this if you reference any of your controllers in activate
 # require_dependency 'application_controller'
 
-class ConfExtension < Radiant::Extension
-  version "1.1"
+class SettingsExtension < Radiant::Extension
+  version "1.2"
   description "Web based administration for Radiant default configuration settings."
-  url "http://github.com/squaretalent/radiant-conf-extension"
+  url "http://github.com/squaretalent/radiant-settings-extension"
   
   define_routes do |map|
     map.namespace 'admin' do |admin|
-      admin.resources :configs
+      admin.resources :configs, :as => :settings
     end
   end
   
@@ -27,7 +27,7 @@ class ConfExtension < Radiant::Extension
     end
     
     tab 'Settings' do
-      add_item 'Config', '/admin/configs', :after => 'Users'
+      add_item 'Settings', '/admin/settings', :after => 'Personal'
     end
     
     Page.class_eval { include ConfigTags }

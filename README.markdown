@@ -1,12 +1,18 @@
-Radiant Conf Extension
+Radiant Settings Extension
 ==========================
 
-A simple configuration editor for Radiant.  It adds a simple "Settings" tab that allows manage the configuration settings.
+A simple configuration editor for Radiant.  It adds a simple "Settings" tab that allows manage the system settings.
 
 After installation be sure to update your instance of radiant!
 
-    rake radiant:extensions:conf:update
-    rake radiant:extensions:conf:migrate
+    rake radiant:extensions:settings:update
+    rake radiant:extensions:settings:migrate
+    
+Additionally this extension includes yaml_db which makes it easy to dump and import a database. This can be great on
+for making changes on a development machine which are pushed to production.
+
+    rake db:export // dumps schema.rb and config/data.yaml
+    rake db:import // imports schema.rb and config/data.yaml
 
 Extension Developers
 --------------------
