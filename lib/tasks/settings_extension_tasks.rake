@@ -27,15 +27,3 @@ namespace :radiant do
     end
   end
 end
-
-namespace :db do
-  task :import do
-    Rake::Task["db:schema:load"].invoke
-    Rake::Task["db:data:load"].invoke
-  end
-  
-  task :export do
-    Rake::Task["db:schema:dump"].invoke
-    Rake::Task["db:data:dump"].invoke
-  end
-end
