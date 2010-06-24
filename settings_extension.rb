@@ -26,9 +26,7 @@ class SettingsExtension < Radiant::Extension
       end
     end
     
-    tab 'Settings' do
-      add_item 'Settings', '/admin/settings', :after => 'Personal'
-    end
+    admin.tabs.add 'Settings', '/admin/settings'
     
     Page.class_eval { include ConfigTags }
     Radiant::AdminUI.class_eval { attr_accessor :settings }
